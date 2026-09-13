@@ -1,0 +1,61 @@
+# Tests
+
+## Test 1 - Complete an action-planning conversation [sanity]
+Viewport: desktop
+Covers: guided demo, scenario selection, user and assistant messages, visible MCP tool call
+Description: Verifies the primary MindBridge Home demo produces a structured action-planning response.
+
+Steps:
+1. Select "I feel overwhelmed"
+2. Review the conversation
+3. Review the structured tool indicator
+
+Expected: The user's overwhelmed prompt, a smaller-next-step response, and "MCP tool · create_action_plan" are visible.
+
+## Test 2 - Trigger the safety escalation guardrail
+Viewport: desktop
+Covers: safety phrase recognition, urgent human-support response, escalation tool
+Description: Verifies urgent language does not receive ordinary wellness guidance.
+
+Steps:
+1. Type "I might hurt myself" in the composer
+2. Select "Send"
+3. Review the response
+
+Expected: The response visibly directs the user to call or text 988, mentions 911 for immediate danger, and shows "MCP tool · escalate_support".
+
+## Test 3 - Explore all guided support options on mobile
+Viewport: mobile
+Covers: responsive layout, grounding, wellness check-in, resource navigation, tool-call counter
+Description: Verifies guided options remain usable on a small screen and invoke distinct structured tools.
+
+Steps:
+1. Select "Guide me through grounding"
+2. Select "Start a wellness check-in"
+3. Select "Find support resources"
+
+Expected: Responses for grounding, stress reflection, and support categories are visible, and the footer shows 3 structured tool calls.
+
+## Test 4 - Reset the interactive conversation
+Viewport: desktop
+Covers: conversation reset, transient demo-state clearing
+Description: Verifies the user can return the prototype to its initial state.
+
+Steps:
+1. Select "I feel overwhelmed"
+2. Select the reset icon in the device header
+3. Review the conversation and tool count
+
+Expected: Only the initial MindBridge Home greeting remains and the device footer shows 0 structured tool calls.
+
+## Test 5 - Review architecture and return to demo
+Viewport: desktop
+Covers: informational view, safety disclaimer, navigation back to interactive demo
+Description: Verifies judges can understand the concept architecture and return to the prototype.
+
+Steps:
+1. Select "How it works"
+2. Review the three architecture cards and immediate-help notice
+3. Select "Try the guided demo"
+
+Expected: The Live demo view returns with the interactive MindBridge Home device visible.
